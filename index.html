@@ -9,38 +9,34 @@
         :root { --bg: #0b0e14; --card: #161d29; --primary: #00d2ff; --accent: #ff0055; --text: #94a3b8; --gold: #f1c40f; --success: #2ecc71; }
         body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
 
-        /* গাইডলাইন বক্স */
-        .guideline-box { border: 2px solid var(--gold); border-radius: 15px; padding: 20px; width: 100%; max-width: 400px; margin-bottom: 30px; background: rgba(0,0,0,0.3); }
+        /* গাইডলাইন বক্স - প্রিমিয়াম ডিজাইন */
+        .guideline-box { border: 2px solid var(--gold); border-radius: 15px; padding: 20px; width: 100%; max-width: 400px; margin-bottom: 30px; background: rgba(0,0,0,0.3); box-sizing: border-box; }
         .guideline-header { color: var(--gold); font-weight: bold; font-size: 18px; display: flex; align-items: center; gap: 10px; margin-bottom: 15px; border-bottom: 1px solid rgba(241,196,15,0.2); padding-bottom: 10px; }
-        .guide-item { display: flex; align-items: center; gap: 12px; font-size: 13px; margin-bottom: 12px; line-height: 1.5; }
-        .guide-item i { color: var(--gold); font-size: 14px; width: 15px; text-align: center; }
-        .highlight { color: #fff; font-weight: bold; margin: 0 4px; }
+        .guide-item { display: flex; align-items: center; gap: 12px; font-size: 14px; margin-bottom: 12px; line-height: 1.6; color: #e2e8f0; }
+        .guide-item i { color: var(--gold); font-size: 14px; width: 18px; text-align: center; }
+        .highlight { color: #fff; font-weight: bold; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px; margin: 0 4px; border: 1px solid rgba(255,255,255,0.2); }
 
-        /* অ্যাপ কার্ড ডিজাইন */
-        .app-card { background: var(--card); border-radius: 25px; padding: 30px; width: 100%; max-width: 380px; text-align: center; border: 1px solid #232d3d; box-shadow: 0 20px 40px rgba(0,0,0,0.5); position: relative; }
+        /* অ্যাপ কার্ড */
+        .app-card { background: var(--card); border-radius: 25px; padding: 30px; width: 100%; max-width: 380px; text-align: center; border: 1px solid #232d3d; box-shadow: 0 20px 40px rgba(0,0,0,0.5); position: relative; box-sizing: border-box; }
         .premium-badge { background: var(--accent); color: white; padding: 5px 15px; border-radius: 20px; font-size: 10px; font-weight: bold; display: inline-block; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
         .app-icon { width: 110px; height: 110px; border-radius: 25px; margin: 0 auto 15px; display: block; object-fit: cover; border: 2px solid rgba(0, 210, 255, 0.1); }
-        .app-name { font-size: 24px; font-weight: bold; margin-bottom: 8px; }
         
-        /* মেটা ইনফো এবং আইকন */
         .meta-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 25px; font-size: 13px; color: var(--text); }
         .meta-item { display: flex; align-items: center; gap: 5px; }
         .meta-item i { color: var(--primary); font-size: 14px; }
 
-        /* বাটন স্টাইল */
+        /* বাটন */
         .btn { width: 100%; padding: 16px; border-radius: 12px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; border: none; font-size: 16px; transition: 0.3s; margin-bottom: 12px; }
-        .btn-watch { background: var(--primary); color: #000; }
+        .btn-watch { background: var(--primary); color: #000; box-shadow: 0 5px 15px rgba(0, 210, 255, 0.2); }
         .btn-download { background: #1e293b; color: #555; cursor: not-allowed; }
-        .btn-unlocked { background: var(--success) !important; color: white !important; box-shadow: 0 0 20px rgba(46, 204, 113, 0.3); }
+        .btn-unlocked { background: var(--success) !important; color: white !important; box-shadow: 0 0 20px rgba(46, 204, 113, 0.4); }
 
-        /* ফুটারে নিরাপত্তা আইকন */
         .footer-icons { display: flex; justify-content: center; gap: 15px; margin-top: 20px; font-size: 11px; color: #556070; font-weight: bold; }
-        .footer-icons span { display: flex; align-items: center; gap: 5px; text-transform: uppercase; }
 
-        /* টাইমার পপআপ (অ্যাডস্টারার ব্যানারের জন্য উপযুক্ত) */
-        #timerPopup { position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; }
-        .popup-box { background: white; width: 300px; height: 250px; border-radius: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 20px; color: #333; font-weight: bold; position: relative; }
-        .wait-label { background: #222; color: white; padding: 12px 25px; border-radius: 30px; border: 1px solid #444; font-size: 14px; }
+        /* পপআপ */
+        #timerPopup { position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; backdrop-filter: blur(5px); }
+        .popup-box { background: #fff; width: 300px; height: 250px; border-radius: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 25px; color: #333; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
+        .wait-label { background: #222; color: white; padding: 12px 30px; border-radius: 30px; border: 1px solid #444; font-size: 14px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -48,23 +44,23 @@
     <div class="guideline-box">
         <div class="guideline-header"><i class="fas fa-shield-halved"></i> ডাউনলোড গাইডলাইন</div>
         <div class="guide-item">
-            <i class="fas fa-chevron-right"></i> 
-            <span>ডাউনলোড বাটন আনলক করতে মোট <span class="highlight" id="gAds">...</span> টি অ্যাড দেখুন।</span>
+            <i class="fas fa-check-circle"></i> 
+            <span>ডাউনলোড করতে মোট <span class="highlight" id="gAds">...</span> টি অ্যাড দেখতে হবে।</span>
         </div>
         <div class="guide-item">
-            <i class="fas fa-chevron-right"></i> 
-            <span>(Watch Ad) বাটনে ক্লিক করার পর <span class="highlight" id="gSec">...</span> সেকেন্ড অপেক্ষা করুন।</span>
+            <i class="fas fa-clock"></i> 
+            <span>প্রতিটি অ্যাডে আপনাকে <span class="highlight" id="gSec">...</span> সেকেন্ড ওয়েট করতে হবে।</span>
         </div>
         <div class="guide-item">
-            <i class="fas fa-chevron-right"></i> 
-            <span>সফলভাবে সব অ্যাড দেখা শেষ হলে <span id="gColor" style="color:var(--success); font-weight:bold;">সবুজ</span> রঙের ডাউনলোড বাটনটি আসবে।</span>
+            <i class="fas fa-unlock-keyhole"></i> 
+            <span>সবগুলো ধাপ শেষ হলে ডাউনলোড বাটনটি <span style="color:var(--success); font-weight:bold;">সবুজ (Unlocked)</span> হবে।</span>
         </div>
     </div>
 
     <div class="app-card">
         <div class="premium-badge">Premium Unlocked</div>
-        <img id="appIcon" src="" class="app-icon" alt="App">
-        <div class="app-name" id="appName">Loading...</div>
+        <img id="appIcon" src="" class="app-icon" alt="App Icon">
+        <div id="appName" style="font-size: 24px; font-weight: bold; margin-bottom: 8px;">Loading...</div>
         
         <div class="meta-container">
             <div class="meta-item"><i class="fas fa-star"></i> 4.9</div>
@@ -81,17 +77,20 @@
         </button>
 
         <div class="footer-icons">
-            <span><i class="fas fa-shield-virus"></i> No Virus</span>
-            <span><i class="fas fa-bolt"></i> Fast Link</span>
-            <span><i class="fas fa-cloud"></i> Cloud Host</span>
+            <span><i class="fas fa-shield-virus"></i> SAFE</span> | 
+            <span><i class="fas fa-bolt"></i> FAST</span> | 
+            <span><i class="fas fa-cloud"></i> CLOUD</span>
         </div>
     </div>
 
     <div id="timerPopup">
-        <div class="popup-box">
-            <p style="font-size: 12px; color: #999;">ADVERTISEMENT AREA</p>
+        <div class="popup-box" id="adContainer">
+            <div style="text-align: center; color: #888;">
+                <i class="fas fa-rectangle-ad" style="font-size: 40px; margin-bottom: 10px;"></i>
+                <p>ADVERTISING AREA</p>
+            </div>
         </div>
-        <div class="wait-label" id="timerLabel">Please wait 10 seconds...</div>
+        <div class="wait-label" id="timerLabel">Please wait...</div>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
@@ -109,45 +108,49 @@
         const db = firebase.database();
 
         let maxAds = 0, timerVal = 10, currentStep = 0;
-        let adData = {}; // সম্পূর্ণ ডাটা স্টোর করার জন্য
+        let adData = {};
 
-        // প্যানেল থেকে ডাটা সিঙ্ক (Updated for 5 links)
+        // ডাটাবেস থেকে রিয়েলটাইম ডাটা লোড
         db.ref('appSettings').on('value', (snap) => {
             adData = snap.val();
             if(adData) {
-                maxAds = parseInt(adData.totalAds);
-                timerVal = parseInt(adData.adTimer);
+                // এডমিন প্যানেল থেকে ভ্যালু নিয়ে আসা
+                maxAds = parseInt(adData.totalAds) || 0;
+                timerVal = parseInt(adData.adTimer) || 0;
 
-                document.getElementById('appName').innerText = adData.appName;
-                document.getElementById('appIcon').src = adData.appIcon;
-                document.getElementById('appSize').innerText = adData.appSize;
-                document.getElementById('total').innerText = maxAds;
+                // UI আপডেট করা
+                document.getElementById('appName').innerText = adData.appName || "App Name";
+                document.getElementById('appIcon').src = adData.appIcon || "";
+                document.getElementById('appSize').innerText = adData.appSize || "0 MB";
                 
+                // গাইডলাইন এবং বাটনের সংখ্যা আপডেট
+                document.getElementById('total').innerText = maxAds;
                 document.getElementById('gAds').innerText = maxAds;
                 document.getElementById('gSec').innerText = timerVal;
-                document.getElementById('pageTitle').innerText = adData.appName + " - Premium Download";
+                
+                document.getElementById('pageTitle').innerText = (adData.appName || "App") + " - Premium Download";
             }
         });
 
         function runAd() {
             if(currentStep < maxAds) {
-                // প্যানেলের ৫টি লিঙ্ক থেকে বর্তমান ধাপের লিঙ্কটি নেওয়া
-                let links = [adData.adL1, adData.adL2, adData.adL3, adData.adL4, adData.adL5];
-                let currentAdUrl = links[currentStep] || adData.adL1; 
+                const links = [adData.adL1, adData.adL2, adData.adL3, adData.adL4, adData.adL5];
+                const currentAdUrl = links[currentStep] || adData.adL1 || "#";
 
-                // ডাইরেক্ট লিঙ্ক ওপেন করা
-                window.open(currentAdUrl, '_blank');
+                if(currentAdUrl !== "#") window.open(currentAdUrl, '_blank');
 
                 const popup = document.getElementById('timerPopup');
                 const label = document.getElementById('timerLabel');
                 popup.style.display = 'flex';
                 
                 let counter = timerVal;
+                label.innerText = `Please wait ${counter} seconds...`;
+
                 const interval = setInterval(() => {
-                    label.innerText = `Please wait ${counter} seconds...`;
                     counter--;
+                    label.innerText = `Please wait ${counter} seconds...`;
                     
-                    if(counter < 0) {
+                    if(counter <= 0) {
                         clearInterval(interval);
                         popup.style.display = 'none';
                         currentStep++;
@@ -168,7 +171,11 @@
                 dBtn.classList.remove('btn-download');
                 dBtn.classList.add('btn-unlocked');
                 dBtn.innerHTML = `<i class="fas fa-download"></i> Download Now (Free)`;
-                dBtn.onclick = () => window.location.href = adData.downloadLink;
+                
+                dBtn.onclick = () => {
+                    if(adData.downloadLink) window.location.href = adData.downloadLink;
+                    else alert("Link not found!");
+                };
             }
         }
     </script>
