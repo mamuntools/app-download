@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Loading...</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0b0e14;
+            --card: #161b22;
+            --primary: #00d2ff;
+            --accent: #ff0055;
+            --success: #00ff88;
+            --text-dim: #94a3b8;
+            --border: #30363d;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        /* ডাউনলোড গাইডলাইন বক্স */
+        .guideline-box {
+            background: rgba(255, 165, 0, 0.05);
+            border: 1px solid #ffa500;
+            border-radius: 15px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 25px;
+        }
+
+        .guideline-box h3 {
+            color: #ffa500;
+            margin: 0 0 10px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .guideline-box p {
+            font-size: 13px;
+            margin: 8px 0;
+            color: #ccc;
+        }
+
+        /* মেইন কার্ড ডিজাইন */
+        .app-card {
+            background: var(--card);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 28px;
+            padding: 30px 20px;
+            border: 1px solid var(--border);
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .premium-badge {
+            background: var(--accent);
+            color: white;
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        #appIcon {
+            width: 100px;
+            height: 100px;
+            border-radius: 25px;
+            margin: 20px 0 10px;
+            border: 3px solid var(--border);
+            object-fit: cover;
+        }
+
+        h1 { font-size: 24px; margin: 5px 0; letter-spacing: -0.5px; }
+
+        .app-meta {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-bottom: 25px;
+        }
+
+        .app-meta span i { color: var(--primary); margin-right: 4px; }
+
+        /* বাটন ডিজাইন */
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .watch-ad-btn { background: var(--primary); color: #000; }
+        .watch-ad-btn:disabled { background: #1e293b; color: #4b5563; cursor: not-allowed; }
+
+        .download-now-btn { background: #21262d; color: #4b5563; cursor: not-allowed; }
+        .download-now-btn.active { background: var(--success); color: #000; cursor: pointer; }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="guideline-box">
+        <h3><i class="fas fa-shield-alt"></i> ডাউনলোড গাইডলাইন</h3>
+        <p>➜ ডাউনলোড বাটন আনলক করতে মোট <b id="totalAdsText">3</b> টি অ্যাড দেখুন।</p>
+        <p>➜ (Watch Ad) বাটনে ক্লিক করার পর ১৫ সেকেন্ড অপেক্ষা করুন।</p>
+        <p>➜ সফলভাবে সব অ্যাড দেখা শেষ হলে সবুজ রঙের ডাউনলোড বাটনটি আসবে।</p>
+    </div>
+
+    <div class="app-card">
+        <span class="premium-badge">Premium Unlocked</span>
+        <br>
+        <img id="appIcon" src="" alt="Icon">
+        <h1 id="appName">Loading...</h1>
+        
+        <div class="app-meta">
+            <span><i class="fas fa-star"></i> 4.9</span>
+            <span><i class="fas fa-file-archive"></i> <span id="appSize">-- MB</span></span>
+            <span><i class="fas fa-user-check"></i> Verified</span>
+        </div>
+
+        <button class="btn watch-ad-btn" id="watchBtn" onclick="handleWatchAd()">
+            <i class="fas fa-play-circle"></i> <span id="btnText">Watch Ad ( 0 / 3 )</span>
+        </button>
+
+        <button class="btn download-now-btn" id="downloadBtn" onclick="handleFinalDownload()">
+            <i class="fas fa-lock"></i> Download Now (Free)
+        </button>
+
+        <div class="footer-icons">
+            <span><i class="fas fa-virus-slash"></i> No Virus</span>
+            <span><i class="fas fa-bolt"></i> Fast Link</span>
+            <span><i class="fas fa-cloud"></i> Cloud Host</span>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCPbYi4l4gXESVFDEf93n1nvKshUOxwwf0",
+            authDomain: "my-admin-panel-a70cc.firebaseapp.com",
+            databaseURL: "https://my-admin-panel-a70cc-default-rtdb.firebaseio.com",
+            projectId: "my-admin-panel-a70cc",
+            appId: "1:992979831424:web:ba765f5bb23db644693465"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
+        let currentClicks = 0;
+        let totalRequired = 3;
+        let adLink = "";
+        let downloadLink = "";
+
+        // ডাটাবেস থেকে তথ্য আনা
+        db.ref('appSettings').on('value', (snap) => {
+            const data = snap.val();
+            if(data) {
+                document.getElementById('appName').innerText = data.appName;
+                document.getElementById('pageTitle').innerText = data.appName + " - Download";
+                document.getElementById('appIcon').src = data.appIcon;
+                document.getElementById('appSize').innerText = data.appSize;
+                adLink = data.adLink; // অ্যাডমিন প্যানেলের অ্যাড ইউআরএল
+                downloadLink = data.downloadLink;
+                
+                // যদি আপনি অ্যাডমিন প্যানেলে অ্যাড সংখ্যা সেট করার অপশন রাখেন
+                // totalRequired = data.totalAds || 3; 
+                document.getElementById('btnText').innerText = `Watch Ad ( 0 / ${totalRequired} )`;
+                document.getElementById('totalAdsText').innerText = totalRequired;
+            }
+        });
+
+        function handleWatchAd() {
+            if (currentClicks < totalRequired) {
+                window.open(adLink, '_blank');
+                let timeLeft = 15; // ১৫ সেকেন্ডের টাইমার
+                const btn = document.getElementById('watchBtn');
+                btn.disabled = true;
+
+                const timer = setInterval(() => {
+                    btn.innerHTML = `<i class="fas fa-clock"></i> Please wait ${timeLeft}s`;
+                    timeLeft--;
+
+                    if (timeLeft < 0) {
+                        clearInterval(timer);
+                        currentClicks++;
+                        btn.disabled = false;
+                        btn.innerHTML = `<i class="fas fa-play-circle"></i> Watch Ad ( ${currentClicks} / ${totalRequired} )`;
+                        
+                        if (currentClicks === totalRequired) {
+                            btn.style.display = 'none';
+                            const dlBtn = document.getElementById('downloadBtn');
+                            dlBtn.classList.add('active');
+                            dlBtn.innerHTML = '<i class="fas fa-download"></i> Download Now (Free)';
+                        }
+                    }
+                }, 1000);
+            }
+        }
+
+        function handleFinalDownload() {
+            if (currentClicks === totalRequired) {
+                window.location.href = downloadLink;
+            }
+        }
+    </script>
+</body>
+</html>
